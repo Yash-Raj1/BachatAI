@@ -1,0 +1,17 @@
+{
+  "models_used": ["Prophet", "ARIMA", "LinearRegression"],
+  "weights": {
+    "prophet": 0.5,
+    "arima": 0.3,
+    "linear": 0.2
+  },
+  "forecast_months": 6,
+  "min_months_needed": 3,
+  "mae": 7059,
+  "mape": 43.1,
+  "accuracy_pct": 56.9,
+  "validation": "walk-forward 15mo train / 3mo test on demo_user",
+  "description": "Weighted ensemble: Prophet(50%) + ARIMA(30%) + LinearRegression(20%). Trains live on each user's real Supabase savings data — no static model file needed.",
+  "production_ready": true,
+  "notes": "Forecaster trains on-the-fly per user. Performance improves with more months of real data uploaded by user."
+}

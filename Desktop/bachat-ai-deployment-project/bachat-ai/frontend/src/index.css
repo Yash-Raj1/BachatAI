@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg:             #FFF7ED;   /* orange-50 warm tint */
+    --color-card:           #FFFFFF;
+    --color-border:         #FED7AA;   /* orange-200 */
+    --color-text:           #1C1917;   /* stone-900 dark enough */
+    --color-text-secondary: #78716C;   /* stone-500 */
+    --color-highlight:      #f97316;   /* orange-500 */
+  }
+
+  .dark {
+    --color-bg:             #0C0A09;   /* stone-950 */
+    --color-card:           #1C1917;   /* stone-900 */
+    --color-border:         #292524;   /* stone-800 */
+    --color-text:           #FAFAF9;   /* stone-50 */
+    --color-text-secondary: #A8A29E;   /* stone-400 */
+    --color-highlight:      #fb923c;   /* orange-400 in dark */
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    @apply antialiased transition-colors duration-300;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(249,115,22,0.15);
+  }
+
+  .dark .glass-card {
+    background: rgba(28,25,23,0.8);
+    border: 1px solid rgba(249,115,22,0.2);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 30px rgba(249,115,22,0.30);
+  }
+
+  .hover-glow-orange:hover {
+    box-shadow: 0 0 40px rgba(249,115,22,0.45);
+  }
+
+  /* Orbital timeline utilities */
+  .orbital-ring {
+    border: 2px dashed rgba(249,115,22,0.15);
+  }
+  .dark .orbital-ring {
+    border-color: rgba(249,115,22,0.1);
+  }
+
+  .orbital-node {
+    transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .orbital-node:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(249,115,22,0.4), 0 0 60px rgba(249,115,22,0.15);
+  }
+
+  .orbital-line {
+    background: linear-gradient(90deg, transparent, rgba(249,115,22,0.3), transparent);
+    height: 2px;
+  }
+
+  .orbital-center-glow {
+    box-shadow: 0 0 40px rgba(249,115,22,0.5), 0 0 80px rgba(249,115,22,0.25), 0 0 120px rgba(249,115,22,0.1);
+  }
+
+  /* YouTube-style shimmer skeleton block */
+  .shimmer-block {
+    background: linear-gradient(
+      90deg,
+      var(--color-border) 0%,
+      rgba(249,115,22,0.08) 40%,
+      var(--color-border) 80%
+    );
+    background-size: 300% 100%;
+    animation: shimmerSweep 1.8s ease-in-out infinite;
+  }
+  .dark .shimmer-block {
+    background: linear-gradient(
+      90deg,
+      #292524 0%,
+      rgba(249,115,22,0.12) 40%,
+      #292524 80%
+    );
+    background-size: 300% 100%;
+  }
+}
+
+/* Shimmer sweep animation — outside @layer so it works globally */
+@keyframes shimmerSweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Floating coin animation for 404 page */
+@keyframes floatCoin {
+  0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}

@@ -1,0 +1,26 @@
+{
+  "model": "LogisticRegression",
+  "accuracy": 0.9707,
+  "categories": [
+    "Bills",
+    "Cash",
+    "EMI",
+    "Entertainment",
+    "Food & Dining",
+    "Fuel",
+    "Groceries",
+    "Healthcare",
+    "Investments",
+    "Other",
+    "Rent",
+    "Salary",
+    "Shopping",
+    "Transfer",
+    "Travel"
+  ],
+  "num_categories": 15,
+  "train_rows": 108279,
+  "test_rows": 27070,
+  "features": "description + type + mode (TF-IDF trigrams, 20K vocab)",
+  "trained_at": "2026-04-17T01:54:38.414727"
+}

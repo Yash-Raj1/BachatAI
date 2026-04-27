@@ -1,0 +1,62 @@
+# ── Python ────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ── Environment files — NEVER commit these ────────────────────────────
+.env
+.env.local
+.env.production
+.env.development
+backend/.env
+frontend/.env
+ml/.env
+
+# ── Node ──────────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.npm
+
+# ── ML temporary files — models are committed, temp data is NOT ───────
+ml/tmp/
+ml/data/raw/
+ml/__pycache__/
+ml/venv/
+ml/.venv/
+# NOTE: ml/models/ is intentionally NOT ignored.
+# The .pkl model files MUST be committed so Render can load them.
+
+# ── Backend temporary files ───────────────────────────────────────────
+backend/tmp/
+backend/uploads/
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/routes/__pycache__/
+backend/app/services/__pycache__/
+backend/app/utils/__pycache__/
+
+# ── OS files ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Logs ──────────────────────────────────────────────────────────────
+*.log
+logs/

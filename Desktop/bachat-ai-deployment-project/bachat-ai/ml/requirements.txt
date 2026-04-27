@@ -1,0 +1,17 @@
+# NOTE: pystan + prophet are pre-installed by build.sh to avoid version conflicts
+# pystan==3.4.0  (handled in build.sh BEFORE this file runs)
+# prophet==1.1.5 (handled in build.sh BEFORE this file runs)
+flask
+flask-cors
+gunicorn
+pandas
+numpy
+scikit-learn
+prophet
+statsmodels
+xgboost
+lightgbm
+joblib
+matplotlib
+seaborn
+requests

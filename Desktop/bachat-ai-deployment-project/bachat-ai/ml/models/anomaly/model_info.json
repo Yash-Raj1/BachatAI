@@ -1,0 +1,45 @@
+{
+  "features": [
+    "amount",
+    "log_amount",
+    "category_enc",
+    "mode_enc",
+    "type_enc",
+    "z_score",
+    "amount_vs_median",
+    "cat_mean",
+    "cat_median",
+    "cat_std"
+  ],
+  "contamination": 0.10235760884823678,
+  "n_estimators": 300,
+  "anomaly_rate": 0.1023,
+  "categories": [
+    "Bills",
+    "Cash",
+    "EMI",
+    "Entertainment",
+    "Food & Dining",
+    "Fuel",
+    "Groceries",
+    "Healthcare",
+    "Investments",
+    "Other",
+    "Rent",
+    "Salary",
+    "Shopping",
+    "Transfer",
+    "Travel"
+  ],
+  "modes": [
+    "ATM",
+    "CREDIT",
+    "ECS",
+    "IMPS",
+    "NEFT",
+    "NETBANKING",
+    "POS",
+    "UPI"
+  ],
+  "trained_at": "2026-04-17T01:55:00.186708"
+}

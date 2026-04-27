@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bachatai-ml-api
+    runtime: python
+    rootDir: ml
+    buildCommand: bash build.sh
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 300 app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
