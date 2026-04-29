@@ -3,7 +3,7 @@
 # prophet==1.1.5 (handled in build.sh BEFORE this file runs)
 flask
 flask-cors
-gunicorn
+gunicorn>=22.0.0
 pandas
 numpy
 scikit-learn
