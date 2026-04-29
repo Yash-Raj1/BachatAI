@@ -31,7 +31,6 @@ User Browser
 Before deploying, make sure all code changes are committed and pushed to GitHub:
 
 ```bash
-cd bachat-ai/
 git add .
 git commit -m "feat: production deployment preparation"
 git push origin main
