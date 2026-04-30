@@ -11,6 +11,7 @@ scipy==1.13.1
 openpyxl==3.1.2
 reportlab==4.0.8
 google-generativeai==0.7.2
+yfinance>=0.2.40
 gunicorn>=22.0.0
 waitress>=2.1.0
 requests>=2.31.0
