@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -110,7 +110,7 @@
   }
 }
 
-/* Shimmer sweep animation — outside @layer so it works globally */
+/* Shimmer sweep animation â€” outside @layer so it works globally */
 @keyframes shimmerSweep {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
@@ -124,9 +124,196 @@
   100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
 }
 
-/* ── Mobile bottom nav spacing ──────────────────────────────────────────── */
+/* â”€â”€ Mobile bottom nav spacing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 639px) {
   body {
     padding-bottom: 5.5rem; /* space for the floating bottom nav */
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE RESPONSIVENESS FIXES
+   Targets: Dashboard, Forecast, Investments, Reports headers,
+            Landing page orbital + testimonials, general content overflow
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 639px) {
+
+  /* ── 1. Header: reduce padding & gap on all pages ── */
+  header > div,
+  header .max-w-7xl {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Right-side action buttons: tighten the gap */
+  header > div > div:last-child,
+  header .max-w-7xl > div:last-child {
+    gap: 0.375rem !important;
+  }
+
+  /* ── 2. Hide Upload & Reset buttons on mobile ──
+     Users can still access Upload from dashboard content area.
+     These buttons have gradient/danger border styling that identifies them */
+  header button[class*="from-primary"][class*="to-primary-dark"],
+  header button[class*="border-danger"] {
+    display: none !important;
+  }
+
+  /* ── 3. Hide Refresh button on mobile (Investments page) ── */
+  header button[class*="border-border"][class*="text-text-secondary"][class*="text-xs"] {
+    display: none !important;
+  }
+
+  /* ── 4. Slim down avatar button on mobile ── */
+  header button[class*="rounded-xl"][class*="border-border"][class*="group"] {
+    padding: 0.25rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  /* ── 5. Slim down Notification & Theme toggle ── */
+  header .flex.items-center button[class*="rounded-full"],
+  header .flex.items-center button[class*="rounded-xl"]:not([class*="group"]):not([class*="danger"]):not([class*="primary"]) {
+    padding: 0.25rem !important;
+  }
+
+  /* ── 6. Main content area: reduce horizontal padding ── */
+  main {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  main > .max-w-7xl,
+  main.max-w-7xl,
+  .max-w-7xl.mx-auto {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* ── 7. Prevent any horizontal overflow on page level ── */
+  body {
+    overflow-x: hidden;
+  }
+
+  .min-h-screen {
+    overflow-x: hidden;
+  }
+
+  /* ── 8. Index bars (Investment page) — horizontal scroll ── */
+  .grid.grid-cols-2[class*="gap"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .grid.grid-cols-2[class*="gap"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── 9. Orbital Timeline — scale down for mobile ── */
+  .orbital-ring,
+  [class*="w-[420px]"],
+  [class*="h-[420px]"] {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  [class*="w-[300px]"][class*="h-[300px]"].rounded-full {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  /* Scale orbital center icon */
+  .orbital-center-glow {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+
+  /* Scale orbital nodes */
+  .orbital-node {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+
+  /* ── 10. Landing page: testimonial/review cards ── */
+  /* Ensure review cards don't overflow */
+  [class*="review"],
+  [class*="testimonial"] {
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
+  /* ── 11. Trust stats grid — stack properly on mobile ── */
+  .grid.lg\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 1 !important;
+  }
+
+  .lg\:col-span-1 {
+    grid-column: span 1 !important;
+  }
+
+  /* ── 12. Cards — ensure proper width on mobile ── */
+  .rounded-3xl,
+  .rounded-2xl {
+    max-width: 100%;
+  }
+
+  /* ── 13. Page title sections — reduce size on mobile ── */
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 2rem !important;
+  }
+
+  /* ── 14. Overview stat cards — stack to single column when needed ── */
+  .grid.sm\:grid-cols-2.lg\:grid-cols-4,
+  .grid.sm\:grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  /* ── 15. Chart containers — prevent overflow ── */
+  .recharts-wrapper,
+  .recharts-surface {
+    max-width: 100% !important;
+  }
+
+  /* ── 16. Landing hero section — proper mobile sizing ── */
+  .text-5xl, .text-6xl {
+    font-size: 2rem !important;
+    line-height: 2.25rem !important;
+  }
+
+  .text-4xl {
+    font-size: 1.75rem !important;
+    line-height: 2rem !important;
+  }
+}
+
+/* ── Tablet tweaks (640px–768px) ── */
+@media (min-width: 640px) and (max-width: 767px) {
+  header > div,
+  header .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Orbital still needs some scaling on small tablets */
+  [class*="w-[420px]"],
+  [class*="h-[420px]"] {
+    width: 360px !important;
+    height: 360px !important;
+  }
+}
+
