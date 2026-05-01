@@ -1,10 +1,11 @@
-import React from 'react'
+﻿import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { PageShimmerLoader } from './components/ui/PageShimmerLoader'
 import { useIdleTimeout } from './hooks/useIdleTimeout'
 import { SessionWarning } from './components/ui/SessionWarning'
+import { MobileBottomNav } from './components/ui/MobileBottomNav'
 
 // Lazy load pages for performance
 const Landing = React.lazy(() => import('./pages/Landing'))
@@ -29,6 +30,13 @@ const ProtectedRoute = ({ children }) => {
 const PageLoader = () => <PageShimmerLoader />
 
 import { ChatPanel } from './components/chatbot/ChatPanel'
+
+/** Shows mobile bottom nav only when user is authenticated */
+function AuthNav() {
+  const { user } = useAuth()
+  if (!user) return null
+  return <MobileBottomNav />
+}
 
 /**
  * IdleGuard — wraps all app content; shows session warning & auto-logs out
@@ -58,6 +66,7 @@ export default function App() {
         <IdleGuard>
           <Router>
             <ChatPanel />
+            <AuthNav />
             <React.Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Landing />} />

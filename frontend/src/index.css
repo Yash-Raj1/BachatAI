@@ -123,3 +123,10 @@
   90%  { opacity: 0.6; }
   100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
 }
+
+/* ── Mobile bottom nav spacing ──────────────────────────────────────────── */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 5.5rem; /* space for the floating bottom nav */
+  }
+}
